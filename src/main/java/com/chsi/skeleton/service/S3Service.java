@@ -25,7 +25,7 @@ public class S3Service implements Storage{
 
     @Override
     public File readFile(String bucketName, String key) {
-        Optional<File> file = Optional.ofNullable(new File(key));
+        File file = new File(key);
         ResponseInputStream in = s3Client.getObject(GetObjectRequest
                 .builder()
                 .bucket(bucketName)
@@ -33,12 +33,12 @@ public class S3Service implements Storage{
                 .build());
         if( in != null) {
             try {
-            FileCopyUtils.copy(in, new FileOutputStream(file.get()));
+            FileCopyUtils.copy(in, new FileOutputStream(file));
         } catch (IOException e) {
             e.printStackTrace();
         }
         }
-        return file.orElseThrow();
+        return file;
     }
 
     @Override
