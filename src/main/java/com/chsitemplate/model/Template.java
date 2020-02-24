@@ -15,5 +15,4 @@ public class Template {
     private int id;
 
     private String name;
-
 }
