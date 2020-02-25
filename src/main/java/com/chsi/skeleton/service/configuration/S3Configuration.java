@@ -1,4 +1,4 @@
-package com.chsi.skeleton.configuration;
+package com.chsi.skeleton.service.configuration;
 
 import org.springframework.context.annotation.*;
 import software.amazon.awssdk.regions.*;
