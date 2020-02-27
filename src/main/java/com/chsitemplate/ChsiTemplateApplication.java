@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class ChsiTemplateApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(ChsiTemplateApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(ChsiTemplateApplication.class, args);
+    }
 
 }

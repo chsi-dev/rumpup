@@ -2,6 +2,7 @@ plugins {
 	id 'org.springframework.boot' version '2.2.4.RELEASE'
 	id 'io.spring.dependency-management' version '1.0.9.RELEASE'
 	id 'java'
+	id 'checkstyle'
 }
 
 group = 'com'
@@ -35,4 +36,21 @@ dependencies {
 
 test {
 	useJUnitPlatform()
+}
+
+checkstyle {
+	project.ext.checkstyleVersion = '8.28'
+	project.ext.sevntuChecksVersion = '1.37.0'
+	ignoreFailures = false
+	configFile = file("${project.rootDir}/checkstyle.xml")
+	checkstyleMain.source = 'src/main/java'
+	checkstyleTest.source = 'src/test/java'
+	checkstyleTest.exclude '**/generated-src/**'
+	configurations {
+		checkstyle
+	}
+	dependencies {
+		checkstyle "com.puppycrawl.tools:checkstyle:${checkstyleVersion}"
+		checkstyle "com.github.sevntu-checkstyle:sevntu-checks:${sevntuChecksVersion}"
+	}
 }
