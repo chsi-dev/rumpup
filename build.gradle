@@ -21,13 +21,16 @@ dependencies {
 	compileOnly 'org.projectlombok:lombok:1.18.12'
 	annotationProcessor 'org.projectlombok:lombok:1.18.12'
 
-	testImplementation('org.springframework.boot:spring-boot-starter-test') {
-		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
-	}
-
 	compile group: 'org.springdoc', name: 'springdoc-openapi-core', version: '1.1.49'
 	compile group: 'org.springdoc', name: 'springdoc-openapi-ui', version: '1.1.49'
 
+	testImplementation('org.springframework.boot:spring-boot-starter-test') {
+		exclude module: 'junit'
+		exclude module: 'junit-vintage-engine'
+	}
+	testImplementation 'org.mockito:mockito-core:2.28.2'
+	testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.3.2'
+	testImplementation 'org.mockito:mockito-junit-jupiter:2.27.5'
 }
 
 test {
