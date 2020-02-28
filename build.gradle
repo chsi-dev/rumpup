@@ -1,8 +1,8 @@
 plugins {
+	id 'checkstyle'
 	id 'org.springframework.boot' version '2.1.9.RELEASE'
 	id 'io.spring.dependency-management' version '1.0.9.RELEASE'
 	id 'java'
-	id 'com.google.cloud.tools.jib' version '1.8.0'
 }
 
 group = 'com.chsi'
@@ -14,8 +14,8 @@ repositories {
 }
 
 dependencies {
-	implementation platform ('software.amazon.awssdk:bom:2.5.29')
-	implementation ('software.amazon.awssdk:s3')
+	implementation platform('software.amazon.awssdk:bom:2.5.29')
+	implementation('software.amazon.awssdk:s3')
 	compile group: 'io.springfox', name: 'springfox-swagger2', version: '2.9.2'
 	compile group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.9.2'
 	compile('com.microsoft.sqlserver:mssql-jdbc')
@@ -24,9 +24,11 @@ dependencies {
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
+}
 bootJar {
 	mainClassName = 'com.chsi.skeleton.SkeletonApplication'
 }
 
+test {
+	useJUnit()
 }
-
