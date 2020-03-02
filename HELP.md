@@ -19,13 +19,20 @@ These additional references should also help you:
 
 * [Gradle Build Scans – insights for your project's build](https://scans.gradle.com#gradle)
 in order to run application in docker please use  you need to set up your local environment variables:
+
+
+###SETUP AND RUN
 SPRING_DATASOURCE_URL - this variable represents url to your local or remote data source,
 please note that this value can contain db name, port, db vendor etc.,
+
 SPRING_DATASOURCE_USERNAME
+
 SPRING_DATASOURCE_PASSWORD
 
 AWS_S3_BUCKET 3s bucket which will be involved in integration test as well
+
 AWS_ACCESS_KEY_ID
+
 AWS_SECRET_ACCESS_KEY
 
 in order to do this you need to have AWS access, please check for hot to
